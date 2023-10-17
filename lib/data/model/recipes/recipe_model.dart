@@ -1,4 +1,4 @@
-import 'package:chuper_recipe_app/domain/entity/recipe_entity.dart';
+import 'package:chuper_recipe_app/domain/entity/recipes/recipe_entity.dart';
 import 'meals_model.dart';
 
 class RecipeModel extends RecipeEntity {

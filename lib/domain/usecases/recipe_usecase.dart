@@ -1,9 +1,8 @@
+import 'package:chuper_recipe_app/core/errors/failure.dart';
 import 'package:chuper_recipe_app/core/usecases/usecase.dart';
-import 'package:chuper_recipe_app/data/model/recipe_model.dart';
+import 'package:chuper_recipe_app/data/model/recipes/recipe_model.dart';
 import 'package:chuper_recipe_app/domain/repository/recipe_repository.dart';
 import 'package:dartz/dartz.dart';
-
-import '../../core/errors/failure.dart';
 
 class RecipeUseCase implements UseCase<RecipeModel, NoParams> {
   final RecipeRepository recipeRepository;
@@ -12,7 +11,7 @@ class RecipeUseCase implements UseCase<RecipeModel, NoParams> {
   });
 
   @override
-  Future<Either<Failure, RecipeModel>> call(NoParams params) {
+  Future<Either<Failed, RecipeModel>> call(NoParams params) {
     return recipeRepository.getRecipes();
   }
 }

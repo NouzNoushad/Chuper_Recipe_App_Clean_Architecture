@@ -1,4 +1,4 @@
-import '../../domain/entity/meals_entity.dart';
+import '../../../domain/entity/recipes/meals_entity.dart';
 
 class MealsModel extends Meals {
   const MealsModel(

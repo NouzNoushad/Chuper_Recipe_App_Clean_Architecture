@@ -4,20 +4,23 @@ import 'package:http/http.dart';
 
 import 'status_code.dart';
 
-class BaseClient extends ApiConsumer {
-  Client baseClient = Client();
+class ApiBaseClient extends ApiConsumer {
+  late Client baseClient;
+  ApiBaseClient({required this.baseClient});
+
   Map<String, String> headers = {"Content-Type": "application/json"};
 
   @override
-  Future<String?> getRequest(String url) async {
+  Future<String> getRequest(String url) async {
     Uri uri = Uri.parse(url);
-      Response response = await get(uri);
-      if (response.statusCode == StatusCode.ok ||
-          response.statusCode == StatusCode.created) {
-        return response.body;
-      } else {
-        ErrorHandler.handleResponse(response);
-      }
-      return null;
+    String responseBody = "";
+    Response response = await get(uri);
+    if (response.statusCode == StatusCode.ok ||
+        response.statusCode == StatusCode.created) {
+      responseBody = response.body;
+    } else {
+      ErrorHandler.handleResponse(response);
+    }
+    return responseBody;
   }
 }

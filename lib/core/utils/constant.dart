@@ -1,4 +1,4 @@
-import 'package:chuper_recipe_app/utils/colors.dart';
+import 'package:chuper_recipe_app/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 OutlineInputBorder kInputBorder = OutlineInputBorder(

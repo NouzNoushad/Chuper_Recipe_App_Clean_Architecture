@@ -1,4 +1,4 @@
-import 'package:chuper_recipe_app/data/model/meals_model.dart';
+import 'package:chuper_recipe_app/data/model/recipes/meals_model.dart';
 import 'package:equatable/equatable.dart';
 
 class RecipeEntity extends Equatable {

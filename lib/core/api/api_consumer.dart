@@ -1,3 +1,3 @@
 abstract class ApiConsumer {
-  Future<String?> getRequest(String url);
+  Future<String> getRequest(String url);
 }

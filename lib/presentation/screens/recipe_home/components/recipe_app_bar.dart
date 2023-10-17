@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/colors.dart';
-import '../../../../utils/constant.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/constant.dart';
 
 PreferredSizeWidget recipeAppBar() {
   FocusNode searchfocusNode = FocusNode();
@@ -13,7 +13,11 @@ PreferredSizeWidget recipeAppBar() {
             gradient:
                 LinearGradient(colors: [Colors.deepOrange, Colors.orange])),
       ),
+      actions: [
+        IconButton(onPressed: () {}, icon: const Icon(Icons.favorite_outline))
+      ],
       bottom: AppBar(
+        toolbarHeight: 65,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
