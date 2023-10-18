@@ -1,6 +1,6 @@
-import 'package:chuper_recipe_app/core/utils/extension.dart';
 import 'package:chuper_recipe_app/presentation/bloc/recipe_bloc/recipe_bloc.dart';
 import 'package:chuper_recipe_app/presentation/screens/recipe_home/components/recipe_app_bar.dart';
+import 'package:chuper_recipe_app/presentation/screens/recipe_home/components/recipe_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,74 +39,7 @@ class _RecipeHomeScreenState extends State<RecipeHomeScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
               itemBuilder: (context, index) {
                 final meal = state.recipeModel.meals?[index];
-                return Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Container(
-                    height: context.height * 0.35,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                          width: 3, color: ColorPicker.likeBackground),
-                    ),
-                    child: Column(
-                      children: [
-                        Expanded(
-                          flex: 4,
-                          child: Stack(
-                            children: [
-                              ClipRRect(
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(20),
-                                  topRight: Radius.circular(20),
-                                ),
-                                child: Image.network(
-                                  meal!.strMealThumb.toString(),
-                                  width: double.infinity,
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                              const Positioned(
-                                top: 10,
-                                right: 10,
-                                child: CircleAvatar(
-                                  backgroundColor: ColorPicker.likeBackground,
-                                  child: Icon(
-                                    Icons.favorite_outline,
-                                    color: ColorPicker.whiteColor,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: const BoxDecoration(
-                                color: ColorPicker.whiteColor,
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(20),
-                                  bottomRight: Radius.circular(20),
-                                )),
-                            alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
-                            child: Text(
-                              meal.strMeal.toString() ?? "",
-                              style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  overflow: TextOverflow.ellipsis),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
+                return RecipeCard(meal: meal);
               },
             );
           }

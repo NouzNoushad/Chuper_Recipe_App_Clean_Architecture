@@ -1,4 +1,5 @@
 import 'package:chuper_recipe_app/config/routes/route_constant.dart';
+import 'package:chuper_recipe_app/presentation/screens/recipe_details/layout/details_screen.dart';
 import 'package:chuper_recipe_app/presentation/screens/recipe_home/layout/recipe_home.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,12 @@ class Routes {
         return MaterialPageRoute(
             settings: const RouteSettings(name: RouteConstant.home),
             builder: (context) => const RecipeHomeScreen());
+      case RouteConstant.details:
+        return MaterialPageRoute(
+            settings: const RouteSettings(name: RouteConstant.details),
+            builder: (context) => RecipeDetailsScreen(
+              mealId: settings.arguments as String,
+            ));
       default:
         return MaterialPageRoute(
             builder: (context) => const Scaffold(
